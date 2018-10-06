@@ -5,7 +5,7 @@ var stage;
 
 var boxWidth = 0;
 var boxHeight = 0;
-var boxRows = 8;
+var boxRows = 6;
 var boxColumns = 4;
 var targetValue = "2";
 
@@ -13,9 +13,15 @@ var targetValue = "2";
 function setup() {
     var canvas = createCanvas(windowWidth * 0.95, windowHeight * 0.95);
 
-    stage = new Stage(width/3, 0, width/3, height);
-    boxWidth = stage.w / boxColumns;
-    boxHeight = stage.h / boxRows;
+    var maxWidth = width/boxColumns;
+    var maxHeight = height/boxRows;
+    var boxSize =  (maxHeight < maxWidth)? maxHeight :  maxWidth;
+    var stageWidth = boxSize * boxColumns;
+    var stageHeight = boxSize * boxRows;
+
+    stage = new Stage((width-stageWidth)/2, 0, stageWidth, stageHeight);
+    boxWidth = boxSize;
+    boxHeight = boxSize;
 
     tails = new Tails();
     hero = new Hero(stage.x, (stage.h - boxHeight), boxWidth, boxHeight);
