@@ -23,7 +23,7 @@ function Hero(x, y, w, h) {
         }
 
         strokeWeight(2);
-        rect(this.x, this.y, this.w, this.h);
+        rect(this.x+1, this.y+1, this.w-2, this.h-2);
     };
 
     this.update = function () {

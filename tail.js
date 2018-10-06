@@ -10,7 +10,7 @@ function Tail(x, y, w, h) {
     this.w = w;
     this.h = h;
 
-    this.fontSize = h * 2 / 5;//Magic
+    this.fontSize = this.h * 0.4;//Magic
 
     this.resetValue = function () {
         this.value = randomValue();
@@ -39,17 +39,17 @@ function Tail(x, y, w, h) {
         strokeWeight(2);
         if(this.flaged){
             fill(0, 255, 0);
-            rect(x, y , w, h);
+            rect(this.x, this.y , this.w, this.h);
         }
         if(this.error-- > 0){
             fill(255, 0, 0);
-            rect(x, y , w, h);
+            rect(this.x, this.y, this.w, this.h);
         }
 
         fill(0);
-        textAlign(CENTER);
+        textAlign(CENTER, CENTER);
         textSize(this.fontSize);
-        text(this.value, this.x, this.y + this.fontSize/1.5, this.w, this.h);
+        text(this.value, this.x+this.w/2, this.y+this.h/2);
     };
 }
 
