@@ -1,3 +1,4 @@
+var canvas;
 var hero;
 var tails;
 var stage;
@@ -10,7 +11,7 @@ var targetValue = "2";
 
 
 function setup() {
-    createCanvas(600, 400);
+    var canvas = createCanvas(windowWidth * 0.95, windowHeight * 0.95);
 
     stage = new Stage(width/3, 0, width/3, height);
     boxWidth = stage.w / boxColumns;
@@ -46,6 +47,10 @@ function draw() {
     tails.show();
     hero.show();
 }
+
+// function windowResized() {
+//     resizeCanvas(windowWidth, windowHeight);
+// }
 
 
 
